@@ -18,8 +18,11 @@ const SearchManufacturer = ({ manufacturer, setManufacturer } : SearchManufactur
 
   return (
     <div className="search-manufacturer">
-      <Combobox>
-        <div className="relatvie w-full">
+      <Combobox
+        // value={manufacturer}
+        // onChange={setManufacturer}
+      >
+        <div className="relative w-full">
           <Combobox.Button className="absolute top-[14px]">
             <Image 
               src="/car-logo.svg"
@@ -60,10 +63,21 @@ const SearchManufacturer = ({ manufacturer, setManufacturer } : SearchManufactur
                     key={item}
                     value={item}
                     className={({ active }) => `relative search-manufacturer__option
-                      ${active ? 'bg-primary-blue text-white' : 'text-gray-900'}
+                      ${active ? 'bg-emerald-400 text-white' : 'text-gray-900'}
                     `}
                   >
-                    {item}
+                    {({ selected, active }) => (
+                      <>
+                        <span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
+                          {item}
+                        </span>
+                        {selected ? (
+                          <span className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-teal-600'}`}>
+                            Check
+                          </span>
+                        ) : null}
+                      </>
+                    )}
                   </Combobox.Option>
                 ))
 
