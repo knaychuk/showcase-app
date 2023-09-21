@@ -19,8 +19,8 @@ const SearchManufacturer = ({ manufacturer, setManufacturer } : SearchManufactur
   return (
     <div className="search-manufacturer">
       <Combobox
-        // value={manufacturer}
-        // onChange={setManufacturer}
+        value={manufacturer}
+        onChange={setManufacturer}
       >
         <div className="relative w-full">
           <Combobox.Button className="absolute top-[14px]">
@@ -36,7 +36,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer } : SearchManufactur
           <Combobox.Input 
             className="search-manufacturer__input"
             placeholder="Volkswagen"
-            displayValue={(manufacturer: string) => manufacturer}
+            displayValue={(manufacturer: string) => manufacturer} // I DON'T KNOW WHAT THIS LINE DOES!?!?!?
             onChange={(e) => setQuery(e.target.value)}
           />
 
@@ -63,7 +63,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer } : SearchManufactur
                     key={item}
                     value={item}
                     className={({ active }) => `relative search-manufacturer__option
-                      ${active ? 'bg-emerald-400 text-white' : 'text-gray-900'}
+                      ${active ? 'bg-primary-blue text-white' : 'text-gray-900'}
                     `}
                   >
                     {({ selected, active }) => (
@@ -73,7 +73,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer } : SearchManufactur
                         </span>
                         {selected ? (
                           <span className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-teal-600'}`}>
-                            Check
+                        
                           </span>
                         ) : null}
                       </>
