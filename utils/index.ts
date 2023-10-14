@@ -1,10 +1,12 @@
+import { CarProps } from "@/types";
+
 export async function fetchCars() {
 		const headers = {
         'X-RapidAPI-Key': '59df2c6d4fmsh00f279fccc7fee5p15be1cjsn712e91cbaf90',
         'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
 	}
 
-  const response = await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla', {
+  const response = await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=sephia', {
     headers: headers,
   });
 
@@ -27,3 +29,7 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
 
   return rentalRatePerDay.toFixed(0);
 };
+
+export const generateCarImageUrl = (car: CarProps, angel?: string) => {
+
+}
